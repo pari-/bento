@@ -28,3 +28,15 @@ apt-get update;
 
 apt-get -y upgrade linux-image-$arch;
 apt-get -y install linux-headers-`uname -r`;
+apt-get -y install vim lsof
+
+if [ "${major_version}" -eq "7" ]
+then
+       echo "deb http://ftp.debian.org/debian wheezy-backports main" >/etc/apt/sources.list.d/wheezy-backports.list
+elif [ "${major_version}" -eq "8" ]
+then
+       echo "deb http://ftp.debian.org/debian jessie-backports main" >/etc/apt/sources.list.d/jessie-backports.list
+elif [ "${major_version}" -eq "9" ]
+then
+	echo "deb http://ftp.debian.org/debian stretch-backports main" >/etc/apt/sources.list.d/stretch-backports.list
+fi
