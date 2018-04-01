@@ -28,7 +28,7 @@ apt-get update;
 
 apt-get -y upgrade linux-image-$arch;
 apt-get -y install linux-headers-`uname -r`;
-apt-get -y install vim lsof
+apt-get -y install vim lsof git htop wget
 
 if [ "${major_version}" -eq "7" ]
 then
@@ -40,3 +40,6 @@ elif [ "${major_version}" -eq "9" ]
 then
 	echo "deb http://ftp.debian.org/debian stretch-backports main" >/etc/apt/sources.list.d/stretch-backports.list
 fi
+
+# distribute my .vimrc
+wget -O /root/.vimrc https://raw.githubusercontent.com/pari-/misc/master/.vimrc
